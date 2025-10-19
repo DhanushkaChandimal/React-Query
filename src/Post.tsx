@@ -15,21 +15,21 @@ const fetchPosts = async (): Promise<Post[]> => {
 
 // Using `useQuery` to fetch posts
 const Posts = () => {
-  const { data, isLoading, error } = useQuery<Post[]>({
+    const { data, isLoading, error } = useQuery<Post[]>({
         queryKey: ['posts'],
         queryFn: fetchPosts
     })
 
     if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading posts</p>;
+    if (error) return <p>Error loading posts</p>;
 
-  return (
-    <ul>
-      {data?.map(post => (
-        <li key={post.id}>{post.title}</li>
-      ))}
-    </ul>
-  );
+    return (
+        <ul>
+            {data?.map(post => (
+                <li key={post.id}>{post.title}</li>
+            ))}
+        </ul>
+    );
 };
 
 export default Posts;
